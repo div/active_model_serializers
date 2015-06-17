@@ -104,11 +104,13 @@ module ActiveModel
         def key
           if key = option(:key)
             key
-          elsif embed_ids?
-            "#{@name.to_s.singularize}_ids".to_sym
           else
             @name
           end
+        end
+
+        def embed_ids_key
+          "#{@name.to_s.singularize}_ids".to_sym
         end
 
         def embed_key
@@ -169,11 +171,13 @@ module ActiveModel
         def key
           if key = option(:key)
             key
-          elsif embed_ids? && !polymorphic?
-            "#{@name}_id".to_sym
           else
             @name
           end
+        end
+
+        def embed_ids_key
+          "#{@name}_id".to_sym
         end
 
         def embed_key
