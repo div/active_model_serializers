@@ -72,11 +72,11 @@ module ActiveModel
         end
 
         def embed_ids?
-          [:id, :ids].include? option(:embed, source_serializer._embed)
+          [:id, :ids, :both].include? option(:embed, source_serializer._embed)
         end
 
         def embed_objects?
-          [:object, :objects].include? option(:embed, source_serializer._embed)
+          [:object, :objects, :both].include? option(:embed, source_serializer._embed)
         end
 
         def embed_in_root?
